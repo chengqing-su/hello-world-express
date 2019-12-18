@@ -11,11 +11,11 @@ steps:
 - script: ./auto/test
   displayName: 'test'
 
+- script: ./auto/compile
+  displayName: 'Compile'
+
 - task: Docker@2
   inputs:
     containerRegistry: 'docker-hub'
     command: 'buildAndPush'
     Dockerfile: 'Dockerfile'
-
-- script: ./auto/release
-  displayName: 'Release'
