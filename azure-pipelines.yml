@@ -1,0 +1,21 @@
+trigger:
+  - master
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+stages:
+  - stage: Lint
+    steps:
+    - script: ./auto/lint
+      displayName: 'eslint'
+
+  - stage: Test
+    steps:
+    - script: ./auto/test
+      displayName: 'test'
+
+  - stage: Release
+      steps:
+      - script: ./auto/release
+        displayName: 'Release'
