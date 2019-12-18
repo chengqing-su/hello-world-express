@@ -10,3 +10,12 @@ steps:
 
 - script: ./auto/test
   displayName: 'test'
+
+
+- task: Docker@2
+  inputs:
+    containerRegistry: 'docker-hub'
+    command: 'login'
+
+- script: ./auto/release
+  displayName: 'Release'
